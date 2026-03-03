@@ -1,0 +1,174 @@
+<!-- Hero -->
+<section class="relative overflow-hidden bg-gradient-to-br from-sky-600 to-indigo-700 min-h-[85vh] xs:min-h-[90vh] flex flex-col justify-center">
+  <div class="absolute inset-0 bg-[length:60px_60px] opacity-10" style="background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+    <div class="text-center">
+      <h1 class="text-responsive-4xl font-bold mb-4 sm:mb-6 leading-tight">
+        <span class="text-white drop-shadow-md block">Barangay Nexus</span>
+        <span class="text-sky-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mt-2 block">Digital Civic Portal</span>
+      </h1>
+      <p class="text-white/95 text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 max-w-3xl mx-auto px-2">
+        Streamlining barangay certificate appointments and citizen services for a better community
+      </p>
+      <div class="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center items-center flex-wrap px-2">
+        <button
+          class="bg-white text-sky-700 hover:bg-sky-50 font-semibold w-full xs:w-auto min-w-[200px] sm:min-w-[220px] text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg shadow-lg transition-all"
+          (click)="navigateToLogin()">
+          Access Portal
+        </button>
+        <button
+          class="border-2 border-white text-white hover:bg-white/10 font-medium w-full xs:w-auto min-w-[200px] sm:min-w-[220px] text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg transition-all"
+          (click)="navigateToRegister()">
+          Create Account
+        </button>
+        <button
+          class="w-full xs:w-auto min-w-[200px] sm:min-w-[220px] bg-white/20 hover:bg-white/30 border border-white/50 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-medium transition-all flex items-center justify-center gap-2"
+          (click)="navigateToBasketballCourt()">
+          <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span>Basketball Court Reservation</span>
+        </button>
+      </div>
+      <p class="mt-10 sm:mt-12 text-white/80 text-sm sm:text-base">Developed by <strong class="text-white">Raminder Jangao</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="py-12 sm:py-16 md:py-20 bg-white border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 sm:mb-14 md:mb-16">
+      <h2 class="text-responsive-2xl font-bold gradient-text mb-3 sm:mb-4">Comprehensive Certificate Management</h2>
+      <p class="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-2">
+        All the tools needed for efficient barangay certificate appointments, citizen services, and document processing.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div class="card text-center">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-sky-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-7 h-7 sm:w-8 sm:h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/></svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">User Management</h3>
+        <p class="text-gray-600 text-sm sm:text-base">Registration, profile management, and role-based access for secure administration.</p>
+      </div>
+      <div class="card text-center">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-sky-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-7 h-7 sm:w-8 sm:h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">Certificate Management</h3>
+        <p class="text-gray-600 text-sm sm:text-base">Certificate processing, appointment scheduling, and request tracking.</p>
+      </div>
+      <div class="card text-center">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-sky-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-7 h-7 sm:w-8 sm:h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">Appointment Scheduling</h3>
+        <p class="text-gray-600 text-sm sm:text-base">Easy booking, time slots, and scheduling for citizen services.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="py-12 sm:py-16 md:py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 sm:mb-14 md:mb-16">
+      <h2 class="text-responsive-2xl font-bold gradient-text mb-3 sm:mb-4">Available Services</h2>
+      <p class="text-gray-600 text-base sm:text-lg md:text-xl px-2">Access a wide range of barangay certificate services online</p>
+    </div>
+    <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="card p-4 sm:p-6">
+        <h4 class="font-semibold text-gray-900 mb-2">Barangay Clearance Certificate</h4>
+        <p class="text-sm text-gray-600">Request and track barangay clearance certificates</p>
+      </div>
+      <div class="card p-4 sm:p-6">
+        <h4 class="font-semibold text-gray-900 mb-2">Business Permit</h4>
+        <p class="text-sm text-gray-600">Apply for barangay business permits and licenses</p>
+      </div>
+      <div class="card p-4 sm:p-6">
+        <h4 class="font-semibold text-gray-900 mb-2">Residency Certificate</h4>
+        <p class="text-sm text-gray-600">Obtain residency certificates for various purposes</p>
+      </div>
+      <div class="card p-4 sm:p-6">
+        <h4 class="font-semibold text-gray-900 mb-2">Community Events</h4>
+        <p class="text-sm text-gray-600">Register for community programs and events</p>
+      </div>
+      <div class="card p-4 sm:p-6 xs:col-span-2 lg:col-span-1">
+        <h4 class="font-semibold text-gray-900 mb-2">Court Reservation</h4>
+        <p class="text-sm text-gray-600">Book basketball courts for sports and events</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-12 sm:py-16 md:py-20 bg-white border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-responsive-2xl font-bold text-gray-900 mb-3 sm:mb-4">Ready to Get Started?</h2>
+    <p class="text-gray-600 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
+      Join our digital barangay community and experience streamlined services and better engagement.
+    </p>
+    <div class="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center flex-wrap">
+      <button class="btn-primary w-full xs:w-auto min-w-[200px] text-base sm:text-lg px-6 sm:px-8 py-3" (click)="navigateToRegister()">Create Account Now</button>
+      <button class="btn-outline w-full xs:w-auto min-w-[200px] text-base sm:text-lg px-6 sm:px-8 py-3" (click)="navigateToLogin()">Already Have Account?</button>
+    </div>
+  </div>
+</section>
+
+<!-- Built with - tech stack (for non-users on home) -->
+<section class="py-10 sm:py-12 bg-gray-50 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-center text-xl sm:text-2xl font-bold text-gray-900 mb-2">Built with</h2>
+    <p class="text-center text-sm text-gray-600 mb-6 sm:mb-8">The frameworks and tools used to develop this system</p>
+    <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
+      <!-- Angular -->
+      <a href="https://angular.io" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group" title="Angular">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm group-hover:shadow-md group-hover:border-red-200 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" class="w-8 h-8" fill="#DD0031"><path d="M125 30L31 72.5v105L125 220l94-42.5v-105L125 30z"/><path fill="#C3002F" d="M125 30v190l94-42.5v-105L125 30z"/><path fill="#FFF" d="M125 103.77L72.5 72.5h105L125 103.77z"/></svg>
+        </span>
+        <span class="text-xs font-semibold text-gray-700">Angular 17</span>
+      </a>
+      <!-- TypeScript -->
+      <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group" title="TypeScript">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm group-hover:shadow-md group-hover:border-blue-200 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="w-8 h-8"><path fill="#3178c6" d="M2 63.91v62.5h125v-125H2zm100.73-5a15.56 15.56 0 017.82 4.5 20.58 20.58 0 013 4c0 .16 5.93 3.59 5.93 3.59-.19.15-8.24 3.74-13.43 6.06-3.28 1.48-6.59 2.91-7.25 3.21a26.06 26.06 0 00-6.87 3 15.57 15.57 0 00-5.82 5.25 27.32 27.32 0 00-2.06 4A40.53 40.53 0 0087 126.5c7.8 0 12.5-2.3 19.81-6.61 5.31-3.06 12.16-9 12.79-13.56v-4.63h-9.27V99.13h18.17v4.09a48.19 48.19 0 01-6.65 15.96 46.36 46.36 0 01-9.95 13 53.29 53.29 0 01-20.58 11.78 63 63 0 01-25.79 2.93 46.86 46.86 0 01-24.17-9.3 45 45 0 01-16.77-23.13 60.29 60.29 0 012-23.82A57.42 57.42 0 0152.3 40a52.54 52.54 0 0126-5.2 49.85 49.85 0 0123.75 5.4 39.06 39.06 0 0116.68 18zM89.49 46.08l.23 2.25-8.2 1.69a28 28 0 00-5.31-.96 21.78 21.78 0 00-4.42.05 12.22 12.22 0 00-3.7 1.15 9.77 9.77 0 00-3.31 3.27 11.24 11.24 0 00-1.17 5.25 11 11 0 00.54 3.45 10.11 10.11 0 001.46 2.92 12.32 12.32 0 002.91 2.4 33.56 33.56 0 005.08 2.78 36.86 36.86 0 015.24 2.22 12.22 12.22 0 012.59 2.25 9.77 9.77 0 011.76 3.4A13.29 13.29 0 0188 86.54a11.22 11.22 0 01-2.91 8.36 11.69 11.69 0 01-8.13 3.31 26 26 0 01-6.67-.8 23.58 23.58 0 01-6.08-2.49 22.22 22.22 0 01-5.56-4.4 22.59 22.59 0 01-4-5.5 28.53 28.53 0 01-2.67-6.12l-8.16 2.35a35.72 35.72 0 003.86 8.1 40.89 40.89 0 005.08 7.08 41 41 0 006.9 5.78 42.17 42.17 0 008.24 4.63 41.15 41.15 0 0018.91 4.16 36.86 36.86 0 0016.26-3.46 33.94 33.94 0 0012.13-9.61 34.35 34.35 0 004.72-13.84 36.14 36.14 0 00-1.67-12.24 33.06 33.06 0 00-4.72-10.09 36.17 36.17 0 00-7.95-8.38 41.32 41.32 0 00-10.93-6.25z"/></svg>
+        </span>
+        <span class="text-xs font-semibold text-gray-700">TypeScript</span>
+      </a>
+      <!-- Tailwind CSS -->
+      <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group" title="Tailwind CSS">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm group-hover:shadow-md group-hover:border-cyan-200 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="w-8 h-8"><path fill="#06b6d4" d="M64 4C30 4 4 30 4 64s26 60 60 60 60-26 60-60S98 4 64 4zM50 87V41c-8 0-16-2-22 4-4 3-6 8-6 14s2 11 6 14c6 6 14 4 22 4v-4c-6 0-10-2-12-4-2-2-2-6 0-8 2-2 6-4 12-4v26h12zm12-46h26c4 0 8 2 10 4 2 2 4 6 4 10 0 4-2 8-4 10-2 2-6 4-10 4H74v20c0 8 4 14 10 18 6 4 14 6 24 6 10 0 18-2 24-6 6-4 10-10 10-18V55c0-4-2-8-4-10-2-2-6-4-10-4s-8 2-10 4c-2 2-4 6-4 10v20H62V41zm0 0h10v20h-10z"/></svg>
+        </span>
+        <span class="text-xs font-semibold text-gray-700">Tailwind CSS</span>
+      </a>
+      <!-- RxJS -->
+      <a href="https://rxjs.dev" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group" title="RxJS">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm group-hover:shadow-md group-hover:border-pink-200 transition-all text-pink-600 font-bold text-sm">Rx</span>
+        <span class="text-xs font-semibold text-gray-700">RxJS</span>
+      </a>
+      <!-- Angular Router & Forms (text badges) -->
+      <div class="flex flex-col items-center gap-2">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm text-gray-600 font-bold text-[10px] text-center leading-tight px-1">Router</span>
+        <span class="text-xs font-semibold text-gray-700">Angular Router</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm text-gray-600 font-bold text-[10px] text-center leading-tight px-1">Forms</span>
+        <span class="text-xs font-semibold text-gray-700">Angular Forms</span>
+      </div>
+      <!-- HTML5 -->
+      <div class="flex flex-col items-center gap-2" title="HTML5">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm">
+          <span class="text-lg font-bold text-gray-500">HTML5</span>
+        </span>
+        <span class="text-xs font-semibold text-gray-700">HTML5</span>
+      </div>
+      <!-- SCSS -->
+      <div class="flex flex-col items-center gap-2" title="SCSS">
+        <span class="flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm">
+          <span class="text-lg font-bold text-gray-500">SCSS</span>
+        </span>
+        <span class="text-xs font-semibold text-gray-700">SCSS</span>
+      </div>
+    </div>
+  </div>
+</section>

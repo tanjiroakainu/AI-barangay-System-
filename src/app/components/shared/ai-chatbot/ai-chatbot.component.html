@@ -1,0 +1,81 @@
+<div *ngIf="showWidget" class="ai-chatbot fixed bottom-6 right-24 md:right-28 z-40 flex flex-col items-end gap-2">
+  <div
+    class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col transition-all duration-300 ease-out"
+    [class.w-full]="isOpen"
+    [class.max-w-md]="isOpen"
+    [class.h-[420px]]="isOpen"
+    [class.w-14]="!isOpen"
+    [class.h-14]="!isOpen">
+    <button
+      type="button"
+      (click)="toggle()"
+      class="flex items-center justify-between gap-2 p-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-inset rounded-2xl shrink-0">
+      <span class="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 text-white shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+      </span>
+      <span class="text-sm font-semibold text-gray-700 truncate" *ngIf="isOpen">Ask Gemini</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 text-gray-500 shrink-0 transition-transform duration-200"
+        [class.rotate-180]="isOpen"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+    <div *ngIf="isOpen" class="flex-1 flex flex-col min-h-0 border-t border-gray-100">
+      <div class="px-3 py-2 bg-gradient-to-r from-violet-50 to-purple-50 border-b border-gray-100">
+        <p class="text-xs text-gray-600">Ask anything—general questions, Barangay Nexus, certificates, or appointments.</p>
+      </div>
+      <div
+        id="ai-chat-messages"
+        class="flex-1 overflow-y-auto p-3 space-y-3 text-sm">
+        <div
+          *ngFor="let msg of messages"
+          class="flex"
+          [class.justify-end]="msg.role === 'user'"
+          [class.justify-start]="msg.role === 'model'">
+          <div
+            [class.bg-sky-600]="msg.role === 'user'"
+            [class.text-white]="msg.role === 'user'"
+            [class.rounded-br-none]="msg.role === 'user'"
+            [class.bg-gray-100]="msg.role === 'model'"
+            [class.text-gray-800]="msg.role === 'model'"
+            [class.rounded-bl-none]="msg.role === 'model'"
+            class="max-w-[85%] px-3 py-2 rounded-2xl whitespace-pre-wrap break-words">
+            {{ msg.text }}
+          </div>
+        </div>
+        <div *ngIf="loading" class="flex justify-start">
+          <div class="bg-gray-100 text-gray-600 px-3 py-2 rounded-2xl rounded-bl-none">
+            <span class="inline-flex gap-1">
+              <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
+              <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
+              <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <form (ngSubmit)="send()" class="p-3 border-t border-gray-200 shrink-0">
+        <div class="flex gap-2">
+          <input
+            type="text"
+            [(ngModel)]="inputText"
+            name="aiChatInput"
+            placeholder="Type your question..."
+            class="flex-1 px-3 py-2 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent text-sm"
+            [disabled]="loading" />
+          <button
+            type="submit"
+            [disabled]="loading || !inputText.trim()"
+            class="px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white font-medium text-sm hover:from-violet-500 hover:to-purple-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

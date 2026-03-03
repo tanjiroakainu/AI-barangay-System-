@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light theme - high contrast for readability */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased min-h-screen;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-sky-600 hover:bg-sky-500 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-gray-50;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-800 font-medium py-2.5 px-5 rounded-lg border-2 border-gray-300 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:ring-offset-2 focus:ring-offset-gray-50;
+  }
+
+  .btn-outline {
+    @apply border-2 border-sky-600 text-sky-600 hover:bg-sky-50 font-medium py-2.5 px-5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:ring-offset-2 focus:ring-offset-gray-50;
+  }
+
+  .btn-outline-orange {
+    @apply border-2 border-sky-600 text-sky-600 hover:bg-sky-50 font-medium py-2.5 px-5 rounded-lg transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .navbar {
+    @apply bg-white border-b border-gray-200 shadow-sm;
+  }
+
+  .gradient-bg {
+    @apply bg-gray-50;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-sky-600 via-sky-500 to-sky-600 bg-clip-text text-transparent font-bold;
+  }
+}
+
+/* Responsive typography */
+@layer utilities {
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  .text-responsive-2xl {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  .text-responsive-4xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+}

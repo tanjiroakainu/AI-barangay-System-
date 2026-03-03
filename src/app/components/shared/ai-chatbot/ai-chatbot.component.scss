@@ -1,0 +1,10 @@
+/* AI Chatbot - floating widget for non-users on home */
+.ai-chatbot {
+  :host {
+    display: block;
+  }
+}
+
+#ai-chat-messages {
+  min-height: 200px;
+}

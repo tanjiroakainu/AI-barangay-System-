@@ -1,0 +1,173 @@
+<div class="p-6 md:p-8">
+  <!-- Page header - aligned with other admin pages -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Certificates</h1>
+    <p class="text-gray-600 mt-2 text-base">View and manage issued certificates. Sample certificates and those issued to residents appear here.</p>
+  </div>
+
+  <!-- Info card -->
+  <div class="card mb-8 border-l-4 border-l-sky-500">
+    <div class="flex items-start gap-3">
+      <div class="flex-shrink-0 w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center">
+        <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div>
+        <p class="text-gray-700 text-base">
+          Use <strong>View Certificate</strong> to open the document and <strong>Download PDF</strong> to export. When a resident’s request is approved, their certificate is listed here with their details.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="flex flex-wrap items-center gap-6 mb-6 text-sm text-gray-600">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
+      <span>Total: <strong class="text-gray-900">{{ certificates.length }}</strong></span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 bg-sky-500 rounded-full"></span>
+      <span>Showing: <strong class="text-gray-900">{{ filteredCertificates.length }}</strong></span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 bg-indigo-500 rounded-full"></span>
+      <span>Types: <strong class="text-gray-900">{{ getCertificateTypes() }}</strong></span>
+    </div>
+  </div>
+
+  <!-- Filter and Search -->
+  <div class="card mb-8">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+        <div class="relative flex-1 sm:min-w-[200px]">
+          <input
+            type="text"
+            placeholder="Search by name, type, or number..."
+            class="input-field pl-10"
+            [(ngModel)]="searchTerm"
+            (input)="filterCertificates()">
+          <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <select
+          class="input-field w-full sm:w-auto min-w-[180px]"
+          [(ngModel)]="selectedType"
+          (change)="filterCertificates()">
+          <option value="">All types</option>
+          <option value="Barangay Clearance Certificate">Barangay Clearance</option>
+          <option value="Residency Certificate">Residency</option>
+          <option value="Indigency Certificate">Indigency</option>
+          <option value="Barangay Business Clearance">Business Clearance</option>
+        </select>
+      </div>
+      <p class="text-sm text-gray-600 font-medium">
+        Showing {{ filteredCertificates.length }} of {{ certificates.length }} certificates
+      </p>
+    </div>
+  </div>
+
+  <!-- Certificate cards grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div
+      *ngFor="let certificate of filteredCertificates"
+      class="card overflow-hidden p-0 hover:shadow-lg transition-shadow">
+      <!-- Card header -->
+      <div class="bg-gradient-to-r from-sky-600 to-indigo-600 text-white p-4">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h3 class="font-bold text-base text-white truncate">{{ certificate.certificateType }}</h3>
+              <p class="text-sm text-white/90 font-medium mt-0.5">{{ certificate.certificateNumber }}</p>
+            </div>
+          </div>
+          <span [class]="getStatusBadgeClass(certificate.status)" class="px-2.5 py-1 rounded-full text-xs font-semibold flex-shrink-0">
+            {{ certificate.status | titlecase }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Card body -->
+      <div class="p-5">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Certificate number</p>
+              <p class="font-semibold text-gray-900">{{ certificate.certificateNumber }}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Issued date</p>
+              <p class="font-semibold text-gray-900">{{ formatDate(certificate.issuedDate) }}</p>
+            </div>
+          </div>
+          <div *ngIf="certificate.expiryDate" class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Expires</p>
+              <p class="font-semibold text-gray-900">{{ formatDate(certificate.expiryDate) }}</p>
+            </div>
+          </div>
+          <div *ngIf="certificate.notes" class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Notes</p>
+            <p class="text-sm text-gray-800">{{ certificate.notes }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="px-5 py-4 bg-gray-50 border-t border-gray-100">
+        <button
+          (click)="showCertificate(certificate)"
+          class="btn-primary w-full flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+          </svg>
+          View certificate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="filteredCertificates.length === 0" class="card text-center py-16">
+    <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-5">
+      <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-gray-900 mb-2">No certificates found</h3>
+    <p class="text-gray-600 mb-6 max-w-md mx-auto">
+      {{ certificates.length === 0 ? 'No certificates have been issued yet.' : 'No certificates match your current filters.' }}
+    </p>
+    <button
+      *ngIf="certificates.length > 0"
+      (click)="clearFilters()"
+      class="btn-primary">
+      Clear filters
+    </button>
+  </div>
+</div>

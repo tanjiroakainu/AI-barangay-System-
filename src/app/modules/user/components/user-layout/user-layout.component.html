@@ -1,0 +1,11 @@
+<div class="min-h-screen h-screen bg-gray-50 flex flex-col overflow-hidden">
+  <app-user-navbar></app-user-navbar>
+  <div class="flex flex-1 overflow-hidden min-h-0">
+    <div class="w-56 lg:w-64 flex-shrink-0 border-r border-gray-200 bg-white overflow-y-auto">
+      <app-user-sidebar></app-user-sidebar>
+    </div>
+    <div class="flex-1 overflow-auto min-w-0 bg-gray-50">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
