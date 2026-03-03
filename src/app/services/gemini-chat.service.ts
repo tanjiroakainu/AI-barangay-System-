@@ -40,7 +40,11 @@ interface GeminiGenerateResponse {
 })
 export class GeminiChatService {
   private get apiKey(): string {
-    return environment.geminiApiKey || '';
+    try {
+      return (environment && environment.geminiApiKey) ? environment.geminiApiKey : '';
+    } catch {
+      return '';
+    }
   }
 
   constructor(private http: HttpClient) {}
@@ -115,7 +119,17 @@ export class GeminiChatService {
           }
           return of(result);
         }),
-        catchError(() => tryNextModel(index + 1)),
+        catchError(err => {
+          const status = err?.status;
+          const msg = err?.message || err?.error?.message || '';
+          if (status === 0 || msg.toLowerCase().includes('cors') || msg.toLowerCase().includes('network')) {
+            return of({
+              text: '',
+              error: 'Network error. Check your connection and that the Gemini API allows requests from this site.',
+            });
+          }
+          return tryNextModel(index + 1);
+        }),
       );
     }
 
